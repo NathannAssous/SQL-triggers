@@ -1,0 +1,34 @@
+version: "3.8"
+services:
+  database:
+    container_name: SQL-triggers-database
+    image: mariadb:10.5.8
+    ports:
+      - "3306:3306"
+    restart: always
+    environment:
+      MYSQL_DATABASE: app_db
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      TZ: Europe/Paris
+    volumes:
+      - ./var/dbdata:/var/lib/mysql
+      - ./doc/app_db.sql:/docker-entrypoint-initdb.d/app_db.sql
+  phpmyadmin:
+    container_name: SQL-triggers-pma
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: database
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+      UPLOAD_LIMIT: 1G
+      MEMORY_LIMIT: 512M
+      MAX_EXECUTION_TIME: 0
+    restart: always
+    links:
+      - database
+    depends_on:
+      - database
+volumes:
+  dbdata:
