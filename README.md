@@ -20,6 +20,13 @@ enregistré afin qu'il le traite.
 ### Schéma de la BDD de l'application
 
 ![Schéma de la base](./doc/schema.png)
+## Missions
+
+A l'aide de triggers SQl vous devez réaliser les transformations nécessaires lors d'insertion ou mise à jour des incidents dans la base:
+- Un nouveau ticket doit avoir un status "NEW" lors de son insertion
+- Un nouveau ticket doit avoir une référence de générée
+- La date de mise à jour doit être mise à jour à chaque UPDATE d'un incident
+- Vous devez avori une table d'audit destinée a recevoir une trace de chaque operation d'insertion ou de mise à jour
 
 ## Installation
 
