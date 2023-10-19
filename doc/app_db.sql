@@ -19,11 +19,11 @@ CREATE TABLE `incident` (
   `priority_id` int(11) NOT NULL,
   `type_id` int(11) NOT NULL,
   `followed_by_id` int(11) DEFAULT NULL,
-  `updated_at` datetime NOT NULL COMMENT '(DC2Type:datetime_immutable)',
+  `updated_at` datetime DEFAULT NULL COMMENT '(DC2Type:datetime_immutable)',
   `reporter_email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `reference` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
