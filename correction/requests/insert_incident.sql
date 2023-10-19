@@ -1,0 +1,1 @@
+INSERT INTO `incident` (`id`, `priority_id`, `type_id`, `followed_by_id`, `updated_at`, `reporter_email`, `reference`, `description`, `status`) VALUES (NULL, '3', '4', NULL, NULL, 'test@mail.dev', 'test', 'coucou', 'test');
